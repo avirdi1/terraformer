@@ -1,19 +1,16 @@
 terraform {
-  cloud {
-    organization = "example-org-738c14"
-
-    workspaces {
-      project = "Learn Terraform"
-      name    = "learn-terraform-aws-get-started"
-    }
-  }
   required_providers {
     aws = {
       source  = "hashicorp/aws"
-      version = "~> 5.92"
+      version = "5.48.0"
     }
   }
 
-  required_version = ">= 1.2"
-}
+  backend "s3" {
+    bucket = "terraform-state-anmol-4821"
+    key    = "terraform.tfstate"
+    region = "us-west-2"
+  }
 
+  required_version = ">= 1.8.2"
+}

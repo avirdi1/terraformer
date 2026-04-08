@@ -6,6 +6,5 @@ output "hello_world" {
 
 output "instance_hostname" {
   description = "Private DNS name of the EC2 instance."
-  value       = aws_instance.app_server.private_dns
+  value       = module.ec2_instance[0].private_dns
 }
-
